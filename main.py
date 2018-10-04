@@ -26,8 +26,14 @@ class Cuttingdata(tk.Frame):
         tk.Frame(master, bg='Black', width='750', height='100').grid(row=0, column=0, columnspan=2, sticky='N', pady=5)
 
         for i in range(1, 5):
-            tk.Frame(master, bg='Black', width='390', height='60').grid(row=i, column=0, sticky='W', padx=5)
-            tk.Frame(master, bg='Black', width='390', height='60').grid(row=i, column=1, sticky='E', padx=5)
+            tk.Frame(master, bg='Black', width='390', height='50').grid(row=i, column=0, sticky='W', padx=5)
+            tk.Frame(master, bg='Black', width='390', height='50').grid(row=i, column=1, sticky='E', padx=5)
+
+        tk.Frame(master, bg='#333333', width='750', height='60').grid(row=5, column=0, columnspan=2, padx=5)
+
+        for i in range(6, 8):
+            tk.Frame(master, bg='Black', width='390', height='50').grid(row=i, column=0, sticky='W', padx=5)
+            tk.Frame(master, bg='Black', width='390', height='50').grid(row=i, column=1, sticky='E', padx=5)
 
         
 
