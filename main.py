@@ -35,12 +35,18 @@ class Cuttingdata(tk.Frame):
             tk.Frame(master, bg='Black', width='390', height='50').grid(row=i, column=0, sticky='W', padx=5)
             tk.Frame(master, bg='Black', width='390', height='50').grid(row=i, column=1, sticky='E', padx=5)
 
+        photo = tk.PhotoImage(file='C:\\Users\\Iver\\Pictures\\Cuttingdata\\Labelframe2.png')
+        label = tk.Label(master, bg='Grey', image=photo, text='Hello World!', compound='center')
+        label.image = photo
+        label.grid(row=1, column=0, sticky='W', padx=5)
+        #tk.Label(master, bg='Grey', text='Hello World!').grid(row=1, column=0, sticky='NS', padx=5)
+
         
 
 
 win = tk.Tk()
 win.geometry("800x600")
-win.resizable(width=False, height=False)
+#win.resizable(width=False, height=False)
 
 app = Cuttingdata(master=win)
 
