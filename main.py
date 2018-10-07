@@ -6,20 +6,12 @@ class Cuttingdata(tk.Frame):
         tk.Frame.__init__(self, master)
 
         self.master = master
+        self.font_size = ("San Francisco", 25)
+        self.font_size1 = ("San Francisco", 30)
         master_frame = tk.Frame(self.master, bg='Grey', width='800', height='600').grid(row=0, column=0, rowspan=10, columnspan=10)
-        #master_frame.grid(row=0, column=0, rowspan=10, columnspan=10)
+        #master_frame.grid(row=0, column=0)
 
         self.preview_body(master_frame)
-
-        """
-        header = tk.Frame(self.master_frame, bg='Black', width='750', height='60').grid(row=0, column=0, columnspan=2, sticky='N', pady=5)
-
-        tk.Frame(self.master_frame, bg='Black', width='390', height='40').grid(row=1, column=0, sticky='W', padx=5)
-        tk.Frame(self.master_frame, bg='Black', width='390', height='40').grid(row=1, column=1, sticky='E', padx=5)
-
-        #ttk.Style().configure('TButton', background='grey')
-        #ttk.Button(self.master_frame, text="Hello World!", style='TButton').grid(row=0, column=0)
-        """
 
     def preview_body(self, master):
 
@@ -35,11 +27,13 @@ class Cuttingdata(tk.Frame):
             tk.Frame(master, bg='Black', width='390', height='50').grid(row=i, column=0, sticky='W', padx=5)
             tk.Frame(master, bg='Black', width='390', height='50').grid(row=i, column=1, sticky='E', padx=5)
 
-        photo = tk.PhotoImage(file='C:\\Users\\Iver\\Pictures\\Cuttingdata\\Labelframe2.png')
-        label = tk.Label(master, bg='Grey', image=photo, text='Hello World!', compound='center')
+        #photo = tk.PhotoImage(file='C:\\Users\\Iver\\Pictures\\Cuttingdata\\Labelframe2.png')
+        photo = tk.PhotoImage(file='./Assets/Labelframe2.png')
+        label = tk.Label(master, bg='Grey', image=photo, text='Cutting Meter', compound='center', font=self.font_size)
         label.image = photo
         label.grid(row=1, column=0, sticky='W', padx=5)
-        #tk.Label(master, bg='Grey', text='Hello World!').grid(row=1, column=0, sticky='NS', padx=5)
+
+        tk.Entry(master, bg='Grey', font=self.font_size1, relief='flat').grid(row=1, column=1, sticky='EWNS', padx=5)
 
         
 
