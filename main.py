@@ -19,7 +19,8 @@ class Cuttingdata(tk.Frame):
         #master_frame.grid(row=0, column=0)
 
         #self.preview_body(master_frame)
-        self.asset_preview_body(master_frame)
+        #self.asset_preview_body(master_frame)
+        self.no_assets_test(master_frame)
         
 
     def preview_body(self, master):
@@ -73,7 +74,27 @@ class Cuttingdata(tk.Frame):
 
         tk.Button(master, bg='#737373', font=self.font_size1, text='JUST DO IT!').grid(row=6, column=0, columnspan=2, sticky='EW', padx=15)
 
+    def no_assets_test(self, master):
 
+        #st_logo = Path('./Assets/ST.png')
+        #header = tk.PhotoImage(file=st_logo)
+
+        #label1 = tk.Label(master, bg='Grey', image=header)
+        #label1.image = header
+        #label1.grid(row=0, column=0, columnspan=2, sticky='S', pady=5)
+
+        #frame = Path('./Assets/Labelframe3.png')
+        #labelframe = tk.PhotoImage(file=frame)
+
+        labeltext = ['Cutting Speed', 'Diameter', 'Teeths', 'Feed']
+        for row, text in zip(range(1, 5), labeltext):
+
+            label2 = tk.Label(master, bg='Grey', text=text, compound='center')
+            label2.grid(row=row, column=0, sticky='W', padx=5, in_=master)
+
+            tk.Entry(master, bg='#737373', relief='flat', justify='center').grid(row=row, column=1, sticky='EW', padx=8)
+
+        tk.Button(master, bg='#737373', text='JUST DO IT!').grid(row=6, column=0, columnspan=2, sticky='EW', padx=15)
 
         
 
