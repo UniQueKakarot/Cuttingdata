@@ -2,7 +2,9 @@ import tkinter as tk
 from tkinter import ttk
 from pathlib import Path
 
-class Cuttingdata(tk.Frame):
+from Modules.Cuttingdata import Cuttingdata
+
+class Main(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
 
@@ -10,100 +12,27 @@ class Cuttingdata(tk.Frame):
         self.font_size = ("Consolas", 23)
         self.font_size1 = ("San Francisco", 25)
 
-        tab_controll = ttk.Notebook(self.master)
-        tab1 = ttk.Frame(tab_controll)
-        tab_controll.add(tab1, text='Tab 1')
-        tab_controll.grid(row=0, column=0, rowspan=10, columnspan=2)
+        ttk.Style().configure('Dark.TNotebook', background='Grey')
+        ttk.Style().configure('Dark.TFrame', background='Grey')
 
-        master_frame = tk.Frame(tab1, bg='white', width='900', height='700').grid(row=0, column=0)
-        #master_frame.grid(row=0, column=0)
+        self.tab_controll = ttk.Notebook(self.master, style='Dark.TNotebook')
 
-        #self.preview_body(master_frame)
-        #self.asset_preview_body(master_frame)
-        self.no_assets_test(master_frame)
-        
+        self.tab1 = ttk.Frame(self.tab_controll, style='Dark.TFrame')
 
-    def preview_body(self, master):
+        self.tab_controll.add(self.tab1, text='Tab 1')
+        self.tab_controll.pack(expand=1, fill="both")
 
-        #tk.Frame(master, bg='Black', width='750', height='100').grid(row=0, column=0, columnspan=2, sticky='N', pady=5)
-        st_logo = Path('./Assets/ST.png')
-        header = tk.PhotoImage(file=st_logo)
+        self.master_frame = tk.LabelFrame(self.tab1, bg='Grey', borderwidth=0)
+        self.master_frame.pack()
 
-        label1 = tk.Label(master, bg='Grey', image=header)
-        label1.image = header
-        label1.grid(row=0, column=0, columnspan=2, sticky='N', pady=5)
+        basic_cuttingdata = Cuttingdata(self.master_frame, self.font_size, self.font_size1)
 
-        for i in range(1, 5):
-            tk.Frame(master, bg='Black', width='390', height='50').grid(row=i, column=0, sticky='W', padx=5)
-            tk.Frame(master, bg='Black', width='390', height='50').grid(row=i, column=1, sticky='E', padx=5)
-
-        tk.Frame(master, bg='#333333', width='750', height='60').grid(row=5, column=0, columnspan=2, padx=5)
-
-        for i in range(6, 8):
-            tk.Frame(master, bg='Black', width='390', height='50').grid(row=i, column=0, sticky='W', padx=5)
-            tk.Frame(master, bg='Black', width='390', height='50').grid(row=i, column=1, sticky='E', padx=5)
-
-        asset1 = Path('./Assets/Labelframe2.png')
-        photo = tk.PhotoImage(file=asset1)
-        label2 = tk.Label(master, bg='Grey', image=photo, text='Cutting Speed', compound='center', font=self.font_size)
-        label2.image = photo
-        label2.grid(row=1, column=0, sticky='W', padx=5)
-
-        tk.Entry(master, bg='Grey', font=self.font_size1, relief='flat', justify='center').grid(row=1, column=1, sticky='EWNS', padx=5)
-
-    def asset_preview_body(self, master):
-
-        st_logo = Path('./Assets/ST.png')
-        header = tk.PhotoImage(file=st_logo)
-
-        label1 = tk.Label(master, bg='Grey', image=header)
-        label1.image = header
-        label1.grid(row=0, column=0, columnspan=2, sticky='S', pady=5)
-
-        frame = Path('./Assets/Labelframe3.png')
-        labelframe = tk.PhotoImage(file=frame)
-
-        labeltext = ['Cutting Speed', 'Diameter', 'Teeths', 'Feed']
-        for row, text in zip(range(1, 5), labeltext):
-
-            label2 = tk.Label(master, bg='Grey', image=labelframe, text=text, compound='center', font=self.font_size)
-            label2.image = labelframe
-            label2.grid(row=row, column=0, sticky='W', padx=5, in_=master)
-
-            tk.Entry(master, bg='#737373', font=self.font_size1, relief='flat', justify='center').grid(row=row, column=1, sticky='EW', padx=8)
-
-        tk.Button(master, bg='#737373', font=self.font_size1, text='JUST DO IT!').grid(row=6, column=0, columnspan=2, sticky='EW', padx=15)
-
-    def no_assets_test(self, master):
-
-        #st_logo = Path('./Assets/ST.png')
-        #header = tk.PhotoImage(file=st_logo)
-
-        #label1 = tk.Label(master, bg='Grey', image=header)
-        #label1.image = header
-        #label1.grid(row=0, column=0, columnspan=2, sticky='S', pady=5)
-
-        #frame = Path('./Assets/Labelframe3.png')
-        #labelframe = tk.PhotoImage(file=frame)
-
-        labeltext = ['Cutting Speed', 'Diameter', 'Teeths', 'Feed']
-        for row, text in zip(range(1, 5), labeltext):
-
-            label2 = tk.Label(master, bg='Grey', text=text, compound='center')
-            label2.grid(row=row, column=0, sticky='W', padx=5, in_=master)
-
-            tk.Entry(master, bg='#737373', relief='flat', justify='center').grid(row=row, column=1, sticky='EW', padx=8)
-
-        tk.Button(master, bg='#737373', text='JUST DO IT!').grid(row=6, column=0, columnspan=2, sticky='EW', padx=15)
-
-        
-
-
-win = tk.Tk()
-win.geometry("900x700")
-#win.resizable(width=False, height=False)
-
-app = Cuttingdata(master=win)
 
 if __name__ == '__main__':
+    win = tk.Tk()
+    win.geometry("900x700")
+    #win.resizable(width=False, height=False)
+
+    app = Main(master=win)
+
     app.mainloop()
