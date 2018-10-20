@@ -19,7 +19,7 @@ class Main(tk.Frame):
 
         self.tab1 = ttk.Frame(self.tab_controll, style='Dark.TFrame')
 
-        self.tab_controll.add(self.tab1, text='Tab 1')
+        self.tab_controll.add(self.tab1, text='Cutting Speed')
         self.tab_controll.pack(expand=1, fill="both")
 
         self.master_frame = tk.LabelFrame(self.tab1, bg='Grey', borderwidth=0)
