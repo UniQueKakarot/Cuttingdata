@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import ttk
-from pathlib import Path
 
 from Modules.Cuttingdata import Cuttingdata
 

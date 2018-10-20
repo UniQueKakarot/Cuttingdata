@@ -5,6 +5,9 @@ from math import pi
 
 
 class Cuttingdata():
+
+    """ Cutting data calculator """
+
     def __init__(self, master, font1, font2): #, tab_master):
 
         self.master = master
@@ -21,12 +24,13 @@ class Cuttingdata():
         self.teeths_entry = None
         self.feed_entry = None
         
-
         ttk.Style().configure('Dark.TEntry', background='#737373', font=("San Francisco", 25))
 
         self.body(self.master, self.font1, self.font2)
 
     def body(self, master, font1, font2):
+
+        """ Definition and creation of Cutting Speed gui """
 
         # Header image
         st_logo = Path('./Assets/ST.png')
@@ -91,6 +95,8 @@ class Cuttingdata():
         output_feed.grid(row=8, column=1, sticky='E', padx=5, pady=10)
 
     def calculations(self):
+
+        """ Calculating Cutting Speed and Feedrate """
 
         cuttingspeed = self.cutting_speed_entry.get()
         cuttingspeed = cuttingspeed.replace(',', '.')
