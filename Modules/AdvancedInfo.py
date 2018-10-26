@@ -6,3 +6,10 @@ class AdvancedInfo():
     def __init__(self, master):
         self.master = master
         
+
+
+    def body_test(self, master):
+        pass
+
+    def body(self, master):
+        pass
