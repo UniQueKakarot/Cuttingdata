@@ -17,14 +17,14 @@ class Main(tk.Frame):
         self.tab_controll = ttk.Notebook(self.master, style='Dark.TNotebook')
 
         self.tab1 = ttk.Frame(self.tab_controll, style='Dark.TFrame')
+        self.tab2 = ttk.Frame(self.tab_controll, style='Dark.TFrame')
 
         self.tab_controll.add(self.tab1, text='Cutting Speed')
+        self.tab_controll.add(self.tab2, text='Advanced Info')
+
         self.tab_controll.pack(expand=1, fill="both")
 
-        self.master_frame = tk.LabelFrame(self.tab1, bg='Grey', borderwidth=0)
-        self.master_frame.pack()
-
-        basic_cuttingdata = Cuttingdata(self.master_frame, self.font_size, self.font_size1)
+        basic_cuttingdata = Cuttingdata(self.tab1, self.font_size, self.font_size1)
 
 
 if __name__ == '__main__':
