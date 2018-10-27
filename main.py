@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 
 from Modules.Cuttingdata import Cuttingdata
+from Modules.AdvancedInfo import AdvancedInfo
 
 class Main(tk.Frame):
     def __init__(self, master):
@@ -25,6 +26,7 @@ class Main(tk.Frame):
         self.tab_controll.pack(expand=1, fill="both")
 
         basic_cuttingdata = Cuttingdata(self.tab1, self.font_size, self.font_size1)
+        advanced_cuttingdata = AdvancedInfo(self.tab2, self.font_size, self.font_size1)
 
 
 if __name__ == '__main__':

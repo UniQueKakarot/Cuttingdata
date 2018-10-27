@@ -25,10 +25,10 @@ class Cuttingdata():
         
         ttk.Style().configure('Dark.TEntry', background='#737373', font=("San Francisco", 25))
 
-        self.master_frame = tk.LabelFrame(self.master, bg='Grey', borderwidth=0)
-        self.master_frame.pack()
+        master_frame = tk.LabelFrame(self.master, bg='Grey', borderwidth=0)
+        master_frame.pack()
 
-        self.body(self.master_frame, self.font1, self.font2)
+        self.body(master_frame, self.font1, self.font2)
 
     def body(self, master, font1, font2):
 
