@@ -3,15 +3,15 @@ import tkinter as tk
 from tkinter import ttk
 
 class AdvancedInfo():
-    def __init__(self, master, font1, font2):
+    def __init__(self, master):
         self.master = master
-        self.font1 = font1
-        self.font2 = font2
+        self.font1 = ("Consolas", 20)
+        self.font2 = ("San Francisco", 22)
         
         master_frame = tk.LabelFrame(self.master, bg='Grey', borderwidth=0)
         master_frame.pack()
 
-        self.body_test(master_frame, self.font1, font2)
+        self.body_test(master_frame, self.font1, self.font2)
 
     def body_test(self, master, font1, font2):
 
