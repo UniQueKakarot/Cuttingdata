@@ -8,10 +8,9 @@ class Cuttingdata():
 
     """ Cutting data calculator """
 
-    def __init__(self, master, font1, font2): #, tab_master):
+    def __init__(self, master, font1, font2):
 
         self.master = master
-        #self.tab_master = tab_master
         self.font1 = font1
         self.font2 = font2
 
@@ -26,7 +25,10 @@ class Cuttingdata():
         
         ttk.Style().configure('Dark.TEntry', background='#737373', font=("San Francisco", 25))
 
-        self.body(self.master, self.font1, self.font2)
+        master_frame = tk.LabelFrame(self.master, bg='Grey', borderwidth=0)
+        master_frame.pack()
+
+        self.body(master_frame, self.font1, self.font2)
 
     def body(self, master, font1, font2):
 
