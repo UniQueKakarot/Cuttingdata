@@ -15,9 +15,9 @@ class MaterialRemovalRate():
         master_frame = tk.LabelFrame(self.master, bg='Grey', borderwidth=0)
         master_frame.pack()
 
-        self.prewiev_body(master_frame, self.font1, self.font2)
+        self.body(master_frame, self.font1, self.font2)
 
-    def prewiev_body(self, master, font1, font2):
+    def body(self, master, font1, font2):
 
         # Header image
         st_logo = Path('./Assets/mill.png')
@@ -48,7 +48,7 @@ class MaterialRemovalRate():
         self.feedrate_entry = tk.Entry(master, bg='#737373', font=font2, relief='flat', justify='center')
         self.feedrate_entry.grid(row=3, column=1, sticky='EW', padx=8)
 
-        tk.Button(master, bg='Grey', font=font2, text='Calculate', bd=3).grid(row=4, column=0, columnspan=2, sticky='EW', padx=15, pady=45)
+        tk.Button(master, bg='Grey', font=font2, text='Calculate', bd=3, command=self.calculation).grid(row=4, column=0, columnspan=2, sticky='EW', padx=15, pady=45)
 
         # Results labels
         result_image1 = Path('./Assets/Resultframe2.png')
@@ -64,3 +64,32 @@ class MaterialRemovalRate():
         output_rpm = tk.Label(master, bg='Grey', image=result_frame2, textvariable=self.mrr, compound='center', font=font1)
         output_rpm.image = result_frame2
         output_rpm.grid(row=5, column=1, sticky='E', padx=5)
+
+    def calculation(self):
+
+        ap = self.ap_entry.get()
+        ap = ap.replace(',', '.')
+        try:
+            ap = float(ap)
+        except ValueError:
+            ap = 0
+
+        ae = self.ae_entry.get()
+        ae = ae.replace(',', '.')
+        try:
+            ae = float(ae)
+        except ValueError:
+            ae = 0
+
+        feedrate = self.feedrate_entry.get()
+        feedrate = feedrate.replace(',', '.')
+        try:
+            feedrate = float(feedrate)
+        except ValueError:
+            feedrate = 0
+
+        material_removal = (ap * ae * feedrate) / 1000
+
+        result = str(round(material_removal, 2)) + ' Cm³'
+
+        self.mrr.set(result)
