@@ -8,14 +8,16 @@ class MaterialRemovalRate():
         self.font1 = font1
         self.font2 = font2
 
+        self.mrr = tk.StringVar()
+
         ttk.Style().configure('Dark.TSeparator', background='#000000')
 
         master_frame = tk.LabelFrame(self.master, bg='Grey', borderwidth=0)
         master_frame.pack()
 
-        self.prewiev_body(master_frame, self.font1, self.font2)
+        self.body(master_frame, self.font1, self.font2)
 
-    def prewiev_body(self, master, font1, font2):
+    def body(self, master, font1, font2):
 
         # Header image
         st_logo = Path('./Assets/mill.png')
@@ -28,13 +30,13 @@ class MaterialRemovalRate():
         frame = Path('./Assets/Labelframe3.png')
         labelframe = tk.PhotoImage(file=frame)
 
-        ap = tk.Label(master, bg='Grey', image=labelframe, text='Ap', compound='center', font=font1)
+        ap = tk.Label(master, bg='Grey', image=labelframe, text='Depth of Cut', compound='center', font=font1)
         ap.image = labelframe
         ap.grid(row=1, column=0, sticky='W', padx=5)
         self.ap_entry = tk.Entry(master, bg='#737373', font=font2, relief='flat', justify='center')
         self.ap_entry.grid(row=1, column=1, sticky='EW', padx=8)
 
-        ae = tk.Label(master, bg='Grey', image=labelframe, text='Ae', compound='center', font=font1)
+        ae = tk.Label(master, bg='Grey', image=labelframe, text='Width of Cut', compound='center', font=font1)
         ae.image = labelframe
         ae.grid(row=2, column=0, sticky='W', padx=5)
         self.ae_entry = tk.Entry(master, bg='#737373', font=font2, relief='flat', justify='center')
@@ -46,6 +48,48 @@ class MaterialRemovalRate():
         self.feedrate_entry = tk.Entry(master, bg='#737373', font=font2, relief='flat', justify='center')
         self.feedrate_entry.grid(row=3, column=1, sticky='EW', padx=8)
 
-        #ttk.Separator(master, orient=tk.HORIZONTAL, style='Dark.TSeparator').grid(row=4, column=0, columnspan=2)
+        tk.Button(master, bg='Grey', font=font2, text='Calculate', bd=3, command=self.calculation).grid(row=4, column=0, columnspan=2, sticky='EW', padx=15, pady=45)
 
-        tk.Button(master, bg='Grey', font=font2, text='Calculate', bd=3).grid(row=6, column=0, columnspan=2, sticky='EW', padx=15, pady=15)
+        # Results labels
+        result_image1 = Path('./Assets/Resultframe2.png')
+        result_frame1 = tk.PhotoImage(file=result_image1)
+
+        result_image2 = Path('./Assets/Resultframe3.png')
+        result_frame2 = tk.PhotoImage(file=result_image2)
+
+        result_rpm = tk.Label(master, bg='Grey', image=result_frame1, text='Material Removal', compound='center', font=font1)
+        result_rpm.image = result_frame1
+        result_rpm.grid(row=5, column=0, sticky='W', padx=5)
+
+        output_rpm = tk.Label(master, bg='Grey', image=result_frame2, textvariable=self.mrr, compound='center', font=font1)
+        output_rpm.image = result_frame2
+        output_rpm.grid(row=5, column=1, sticky='E', padx=5)
+
+    def calculation(self):
+
+        ap = self.ap_entry.get()
+        ap = ap.replace(',', '.')
+        try:
+            ap = float(ap)
+        except ValueError:
+            ap = 0
+
+        ae = self.ae_entry.get()
+        ae = ae.replace(',', '.')
+        try:
+            ae = float(ae)
+        except ValueError:
+            ae = 0
+
+        feedrate = self.feedrate_entry.get()
+        feedrate = feedrate.replace(',', '.')
+        try:
+            feedrate = float(feedrate)
+        except ValueError:
+            feedrate = 0
+
+        material_removal = (ap * ae * feedrate) / 1000
+
+        result = str(round(material_removal, 2)) + ' Cm³'
+
+        self.mrr.set(result)
