@@ -4,7 +4,7 @@ from tkinter import ttk
 from math import pi
 
 
-class Cuttingdata():
+class Cuttingdata:
 
     """ Cutting data calculator """
 

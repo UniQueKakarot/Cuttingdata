@@ -5,6 +5,7 @@ from Modules.Cuttingdata import Cuttingdata
 from Modules.AdvancedInfo import AdvancedInfo
 from Modules.MaterialRemoval import MaterialRemovalRate
 
+
 class Main(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
@@ -27,14 +28,14 @@ class Main(tk.Frame):
         self.tab_controll.pack(expand=1, fill="both")
 
         basic_cuttingdata = Cuttingdata(self.tab1, self.font1, self.font2)
-        #advanced_cuttingdata = AdvancedInfo(self.tab2)
+        # advanced_cuttingdata = AdvancedInfo(self.tab2)
         material_removal = MaterialRemovalRate(self.tab2, self.font1, self.font2)
 
 
 if __name__ == '__main__':
     win = tk.Tk()
     win.geometry("900x700")
-    #win.resizable(width=False, height=False)
+    # win.resizable(width=False, height=False)
 
     app = Main(master=win)
 
