@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8358790-a7ae-425f-8d04-93424ed2bb45" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Modules/AdvancedInfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/AdvancedInfo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Cuttingdata.py" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Cuttingdata.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="e8358790-a7ae-425f-8d04-93424ed2bb45" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +74,7 @@
   <component name="MacroExpansionManager">
     <option name="directoryName" value="xSQAKGZj" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="675" />
     <option name="y" value="-31" />
     <option name="width" value="934" />
@@ -109,6 +105,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
@@ -137,7 +134,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1416" extended-state="7" />
+    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
